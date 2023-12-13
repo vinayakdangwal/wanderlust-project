@@ -1,0 +1,111 @@
+<% layout("./layouts/boilerplate") %> 
+    <style>
+        #filters{
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .filter{
+            text-align: center;
+            margin-right: 2rem;
+            margin-top: 2rem;
+            opacity: 0.7;
+        }
+
+        .filter:hover{
+            opacity: 1;
+            cursor: pointer;
+
+        }
+
+        .filter p{
+            font-size: 0.8rem;
+        }
+    </style>
+    <div id="filters">
+        <a href="/listings/65664f2fb5ba52362b1855ab" style="color: black; text-decoration: none;">
+            <div class="filter">
+                <div><i class="fa-solid fa-fire"></i> </div>
+                <p>Trending</p>
+            </div>
+        </a>
+        <a href="/listings/65664f58b5ba52362b1855b1" style="color: black; text-decoration: none;">
+            <div class="filter">
+                <div><i class="fa-solid fa-mountain-city"></i></div>
+                <p>Iconic Cities</p>
+            </div>
+        </a>
+        <a href="/listings/65664f82b5ba52362b1855b7" style="color: black; text-decoration: none;">
+            <div class="filter">
+                <div><i class="fa-solid fa-mountain"></i> </div>
+                <p>Mountains</p>
+            </div>
+        </a>
+        <a href="/listings/65664fbab5ba52362b1855c3" style="color: black; text-decoration: none;">
+            <div class="filter">
+                <div><i class="fa-solid fa-bed"></i> </div>
+                <p>Rooms</p>
+            </div>
+        </a>
+        <a href="/listings/65664fd9b5ba52362b1855c9" style="color: black; text-decoration: none;">
+            <div class="filter">
+                <div><i class="fa-solid fa-umbrella-beach"></i></div>
+                <p>Beach</p>
+            </div>
+        </a>
+        <a href="/listings/65665098b5ba52362b1855f3" style="color: black; text-decoration: none;">
+            <div class="filter">
+                <div><i class="fa-solid fa-car"></i></div>
+                <p>Vacations Hub</p>
+            </div>
+        </a>
+        <a href="/listings/6566506ab5ba52362b1855eb" style="color: black; text-decoration: none;">
+            <div class="filter">
+                <div><i class="fa-solid fa-cow"></i></div>
+                <p>Rural</p>
+            </div>
+        </a>
+        <a href="/listings/656650c7b5ba52362b1855f9" style="color: black; text-decoration: none;">
+            <div class="filter">
+                <div><i class="fa-solid fa-newspaper"></i></div>
+                <p>What's New</p>
+            </div>
+        </a> 
+        
+        <% if(currUser){ %>
+                <a href="/listings/showlistings" style="color: black; text-decoration: none;" class="ms-auto">
+                    <div class="filter">
+                        <div><i class="fa-solid fa-house"></i></div>
+                        
+                        <p>Your Listings</p>
+                    </div>
+                </a>
+        <% } %>
+        
+    </div>
+    <div class="row row-cols-lg-3 row-cols-md-2 mt-3 row-cols-sm-1">
+        <% for(let listing of allListings){ %>
+            <a href="/listings/<%= listing._id %>" class="listing-link">
+                <div class="card col listing-card" >
+                    <img src="<%= listing.image.url %>" class="card-img-top" alt="Listing Image" style="height: 20rem;">
+                    <div class="card-img-overlay"></div>
+                    <div class="card-body">
+                        <!-- <h5 class="card-title">Card title</h5> -->
+                        <p class="card-text">
+                            <b><%= listing.title %></b>
+                            <br>
+                            &#8377; <%= listing.price.toLocaleString("en-IN") %> / night
+                        </p>
+                    </div>
+                </div>
+            </a>
+        <% } %>
+    </div>
+
+    <!-- <script>
+        let taxSwitch= document.getElementById("flexSwitchCheckDefault");
+        let count=0;
+        taxSwitch.addEventListener("click", () => {
+            console.log("hello");
+        })
+    </script> -->

@@ -1,0 +1,43 @@
+<% layout("./layouts/boilerplate") %>
+        <div class="row mt-3">
+            <div class="col-8 offset-2">
+                <br><br>
+                <h3>Reserve Listing</h3>
+                <form method="POST" action="/listings/<%= listing._id %>/reserve" novalidate class="needs-validation">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" name="booking[name]" placeholder="Enter name" class="form-control" required>
+                        <div class="invalid-feedback">Invalid entry</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <input type="text" name="booking[phone]" placeholder="Enter phone number" class="form-control" required>
+                        <div class="invalid-feedback">Invalid entry</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="days" class="form-label">Number of Days</label>
+                        <input type="number" name="booking[days]" placeholder="Enter number of days" class="form-control" required>
+                        <div class="invalid-feedback">Invalid entry</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="people" class="form-label">Number of People</label>
+                        <input type="number" name="booking[people]" placeholder="Enter number of people" class="form-control" required>
+                        <div class="invalid-feedback">Invalid entry</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="from" class="form-label">From (MM/DD/YYYY)</label>
+                        <input type="date" name="booking[from]" placeholder="Enter check-in date" class="form-control" required>
+                        <div class="invalid-feedback">Invalid entry</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="to" class="form-label">To (MM/DD/YYYY)</label>
+                        <input type="date" name="booking[to]" placeholder="Enter check-out date" class="form-control" required>
+                        <div class="invalid-feedback">Invalid entry</div>
+                    </div>
+                    <button class="btn btn-dark add-btn mt-3" type="submit">Reserve</button>
+                    <br><br>
+                </form>
+            </div>
+
+        </div>
+    
